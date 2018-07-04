@@ -6,13 +6,13 @@ root = Tk()
 
 def key(event):
     print ("pressed", repr(event.char))
-    st.set(f"\nNome: {PokeDown(1).pokeselect()[1]} \n Habilidades: {PokeDown(1).pokeselect()[2]} - {PokeDown(1).pokeselect()[3]}")
+    st.set(f"\nNome: {PokeDown(2).pokeselect()[1]} \n Habilidades: {PokeDown(2).pokeselect()[2]} - {PokeDown(2).pokeselect()[3]}")
 
 def callback(event):
     frame.focus_set()
     print ("clicked at", event.x, event.y)
 
-image = Image.open(f"img/{PokeDown(1).pokeselect()[0]}.png")
+image = Image.open(f"img/{PokeDown(2).pokeselect()[0]}.png")
 image.thumbnail((128,128)) #Mudar o tamanho da imagem
 tkimg = ImageTk.PhotoImage(image)
 lblimg = Label(root, image=tkimg)
