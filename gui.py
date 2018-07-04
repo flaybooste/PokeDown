@@ -12,7 +12,7 @@ def callback(event):
     frame.focus_set()
     print ("clicked at", event.x, event.y)
 
-image = Image.open("img/image.png")
+image = Image.open(f"img/{PokeDown(1).pokeselect()[0]}.png")
 image.thumbnail((128,128)) #Mudar o tamanho da imagem
 tkimg = ImageTk.PhotoImage(image)
 lblimg = Label(root, image=tkimg)
