@@ -12,15 +12,21 @@ def callback(event):
     frame.focus_set()
     print ("clicked at", event.x, event.y)
 
-image = Image.open(f"img/{PokeDown(2).pokeselect()[0]}.png")
-image.thumbnail((128,128)) #Mudar o tamanho da imagem
-tkimg = ImageTk.PhotoImage(image)
+img1 = Image.open(f"img/{PokeDown(2).pokeselect()[0]}.png")
+img1.thumbnail((128,128)) #Mudar o tamanho da imagem
+tkimg = ImageTk.PhotoImage(img1)
 lblimg = Label(root, image=tkimg)
-lblimg.grid(row=0, column=0, rowspan=2)
+lblimg.grid(row=1, column=0, rowspan=1)
+
+img2 = Image.open(f"img/Poison.gif")
+img2.thumbnail((50,19))
+tkimg2 = ImageTk.PhotoImage(img2)
+lblimg2 = Label(root, image=tkimg2)
+lblimg2.grid(row=2, column=0, rowspan=2)
 
 st = StringVar()
 l = Label(root, textvariable=st)
-l.grid(row=2,column=0, rowspan=10)
+l.grid(row=8,column=0, rowspan=14)
 
 #Label(root, text="Ola mundo").pack(side=LEFT)
 
