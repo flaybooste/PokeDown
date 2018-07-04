@@ -16,3 +16,7 @@ class Database:
         self.cur.execute(f"INSERT INTO poke VALUES ({id},'{poke}','{hab1}', '{hab2}','{tipo}')")
         self.con.commit()
         return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo}"
+    def selectdb(self, id):
+        self.cur.execute(f"SELECT * FROM poke WHERE id = {id}")
+        poke = self.cur.fetchone()
+        return poke
