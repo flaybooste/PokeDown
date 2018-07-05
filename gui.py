@@ -21,23 +21,42 @@ class App:
         self.btn0['font'] = ("Ubuntu")
         self.btn0.grid(row=2, column=1)
 
-        self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(1).pokeselect()[1]}\nHabilidade 1:{PokeDown(1).pokeselect()[2]}")
+        '''self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(1).pokeselect()[1]}\nHabilidade 1:{PokeDown(1).pokeselect()[2]}")
         self.lbl1['font']= ("Ubuntu")
 
         self.img0 = Image.open(f"img/{int(PokeDown(1).pokeselect()[0])}.png").resize((101,94))
-        self.img0tk = ImageTk.PhotoImage(self.img0)
-        self.lblimg0 = Label(self.widget1, image=self.img0tk)
+        self.img0tk = ImageTk.PhotoImage(self.img0)'''
+        #self.lblimg0 = Label(self.widget1, image=self.img0tk)
+
     def btn0_action(self):
-        #id1g = self.id1.get()
+        id1g = self.id1.get()
         #REMOVER
         self.msg.grid_remove()
         self.id1.grid_remove()
         self.btn0.grid_remove()
-        #INSERIR
+        #Labels
+        self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(id1g).pokeselect()[1]}\nHabilidade 1:{PokeDown(1).pokeselect()[2]}")
+        self.lbl1['font']= ("Ubuntu")
+        #Button
+        self.btn2 = Button(self.widget1, text="Voltar", command=self.btn2_action)
+        #IMG
+        self.img0 = Image.open(f"img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
+        self.img0tk = ImageTk.PhotoImage(self.img0)
+        self.lblimg0 = Label(self.widget1, image=self.img0tk)
+        #GRID
         self.lblimg0.grid(row=1)
         self.lbl1.grid(row=2)
+        self.btn2.grid(row=3)
 
-        #return id1g
+    def btn2_action(self):
+        #Remove
+        self.lblimg0.grid_remove()
+        self.lbl1.grid_remove()
+        self.btn2.grid_remove()
+        #Inserir
+        self.msg.grid(row=1, column=0)
+        self.id1.grid(row=1, column=1)
+        self.btn0.grid(row=2, column=1)
 root = Tk()
 App(root)
 root.mainloop()
