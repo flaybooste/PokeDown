@@ -1,5 +1,4 @@
 import sqlite3
-
 class Database:
     def __name__(self):
         return "Sqlite3 DATABASE Poke"
@@ -20,3 +19,5 @@ class Database:
         self.cur.execute(f"SELECT * FROM poke WHERE id = {id}")
         poke = self.cur.fetchone()
         return poke
+    def removedb(self, id):
+        self.cur.execute(f"DELETE FROM poke WHERE id = {id}")
