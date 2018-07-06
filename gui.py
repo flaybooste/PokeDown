@@ -1,6 +1,7 @@
 from tkinter import *
 from pokedown import PokeDown
 from PIL import Image, ImageTk
+from selenium import webdriver
 
 class App:
     def __init__(self, master=None):
@@ -60,16 +61,26 @@ class App:
         #Button
         self.btn2 = Button(self.widget1, text="Voltar", command=self.btn2_action)
         #IMG
-        self.img0 = Image.open(f"img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
-        self.img0type = Image.open(f"img/{PokeDown(id1g).pokeselect()[4]}.gif")
-        self.img0tk = ImageTk.PhotoImage(self.img0)
-        self.img0typetk = ImageTk.PhotoImage(self.img0type)
-        self.lblimg0 = Label(self.widget1, image=self.img0tk)
-        self.lblimg0type = Label(self.widget1, image=self.img0typetk)
+        try:
+            self.img0 = Image.open(f"img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
+            self.img0type = Image.open(f"img/{PokeDown(id1g).pokeselect()[4]}.gif")
+            self.img0tk = ImageTk.PhotoImage(self.img0)
+            self.img0typetk = ImageTk.PhotoImage(self.img0type)
+            self.lblimg0 = Label(self.widget1, image=self.img0tk)
+            self.lblimg0type = Label(self.widget1, image=self.img0typetk)
+        except FileNotFoundError:
+            ff = webdriver.Firefox()
+            ff.get(f"https://www.pokemon.com/br/pokedex/{PokeDown(id1g).pokeselect()[1]}")
+
+
         #-----------------------------------
-        self.img1 = Image.open(f"img/{int(PokeDown(id2g).pokeselect()[0])}.png").resize((101,94))
-        self.img1tk = ImageTk.PhotoImage(self.img1)
-        self.lblimg1 = Label(self.widget1, image=self.img1tk)
+        try:
+            self.img1 = Image.open(f"img/{int(PokeDown(id2g).pokeselect()[0])}.png").resize((101,94))
+            self.img1tk = ImageTk.PhotoImage(self.img1)
+            self.lblimg1 = Label(self.widget1, image=self.img1tk)
+        except FileNotFoundError:
+            ff = webdriver.Firefox()
+            ff.get(f"https://www.pokemon.com/br/pokedex/{PokeDown(id2g).pokeselect()[1]}")
         #GRID
         self.lblimg0.grid(row=1, column=0)
         self.lblimg0type.grid(row=2, column=1)
