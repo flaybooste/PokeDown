@@ -31,7 +31,6 @@ class App:
         self.btn0 = Button(self.widget1, text="Get", command=self.btn0_action)
         self.btn0['font'] = ("Ubuntu")
         self.btn0.grid(row=3, column=1)
-        #self.lblimg0 = Label(self.widget1, image=self.img0tk)
 
     def btn0_action(self):
         id1g = self.id1.get()
@@ -43,11 +42,21 @@ class App:
         self.id2.grid_remove()
         self.btn0.grid_remove()
         #Labels
-        self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(id1g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id1g).pokeselect()[2]}\t")
-        self.lbl1['font']= ("Ubuntu", "12")
+        try:
+            self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(id1g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id1g).pokeselect()[2]}\t")
+            self.lbl1['font']= ("Ubuntu", "12")
+        except TypeError:
+            PokeDown(id1g).pokedb()
+            self.lbl1 = Label(self.widget1, text=f"Nome: {PokeDown(id2g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id2g).pokeselect()[2]}\t")
+            self.lbl1['font']= ("Ubuntu", "12")
         #----------------------------
-        self.lbl2 = Label(self.widget1, text=f"Nome: {PokeDown(id2g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id2g).pokeselect()[2]}")
-        self.lbl2['font']= ("Ubuntu", "12")
+        try:
+            self.lbl2 = Label(self.widget1, text=f"Nome: {PokeDown(id2g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id2g).pokeselect()[2]}")
+            self.lbl2['font']= ("Ubuntu", "12")
+        except TypeError:
+            PokeDown(id2g).pokedb()
+            self.lbl2 = Label(self.widget1, text=f"Nome: {PokeDown(id2g).pokeselect()[1]}\nHabilidade 1:{PokeDown(id2g).pokeselect()[2]}\t")
+            self.lbl2['font']= ("Ubuntu", "12")
         #Button
         self.btn2 = Button(self.widget1, text="Voltar", command=self.btn2_action)
         #IMG
