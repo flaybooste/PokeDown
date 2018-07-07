@@ -6,3 +6,10 @@
 
 ###!!! [Parent][MessageChannel] Error: (msgtype=0x130011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
 
+1530967311498	geckodriver	INFO	geckodriver 0.21.0
+1530967311569	geckodriver	INFO	Listening on 127.0.0.1:37445
+1530967312715	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.khB6taVE4G5I"
+1530967316281	Marionette	INFO	Listening on port 41521
+1530967316337	Marionette	WARN	TLS certificate errors will be ignored for this session
+1530967447011	geckodriver	INFO	geckodriver 0.21.0
+1530967447021	geckodriver	INFO	Listening on 127.0.0.1:59785

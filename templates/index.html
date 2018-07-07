@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemons disponíveis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class='container'>
+    <table class="table">
+      <tr>
+        <th>Image</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Ab1</th>
+        <th>Ab2</th>
+        <th>Type</th>
+      </tr>
+    {% for el in data %}
+    <tr>
+      <td><img src="{{ url_for('static', filename='img/{}.png'.format(el[0])) }}" width="120px"></td>
+      <td>{{el[0]}}</td>
+      <td>{{el[1]}}</td>
+      <td>{{el[2]}}</td>
+      <td>{{el[3]}}</td>
+      <td>
+        {% if el[4] == "Poison" %}
+        <img src="{{ url_for('static', filename='img/{}.gif'.format(el[4])) }}" alt="">
+        {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+  </body>
+</html>

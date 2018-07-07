@@ -62,8 +62,8 @@ class App:
         self.btn2 = Button(self.widget1, text="Voltar", command=self.btn2_action)
         #IMG
         try:
-            self.img0 = Image.open(f"img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
-            self.img0type = Image.open(f"img/{PokeDown(id1g).pokeselect()[4]}.gif")
+            self.img0 = Image.open(f"static/img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
+            self.img0type = Image.open(f"static/img/{PokeDown(id1g).pokeselect()[4]}.gif")
             self.img0tk = ImageTk.PhotoImage(self.img0)
             self.img0typetk = ImageTk.PhotoImage(self.img0type)
             self.lblimg0 = Label(self.widget1, image=self.img0tk)
@@ -75,7 +75,7 @@ class App:
 
         #-----------------------------------
         try:
-            self.img1 = Image.open(f"img/{int(PokeDown(id2g).pokeselect()[0])}.png").resize((101,94))
+            self.img1 = Image.open(f"static/img/{int(PokeDown(id2g).pokeselect()[0])}.png").resize((101,94))
             self.img1tk = ImageTk.PhotoImage(self.img1)
             self.lblimg1 = Label(self.widget1, image=self.img1tk)
         except FileNotFoundError:

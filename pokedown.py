@@ -24,4 +24,4 @@ class PokeDown:
         return {"id": pokeid ,"nome": nomep, "ability1": nomeh1, "ability2": nomeh2, "type": nomeTyp}
 
     def pokeselect(self):
-        return Database().selectdb(self.id)
+        return Database().select_one_db(self.id)
