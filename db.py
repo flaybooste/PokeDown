@@ -22,7 +22,7 @@ class Database:
         self.cur.execute(f"SELECT * FROM poke WHERE id = {id}")
         poke = self.cur.fetchone()
         return poke
-        ##Selecionar todo o banco de dados
+        ##Seleciona todo o banco
     def select_all_db(self):
         self.cur.execute("SELECT * FROM Poke")
         poke = self.cur.fetchall()
