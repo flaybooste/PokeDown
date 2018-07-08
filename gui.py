@@ -64,10 +64,10 @@ class App:
         try:
             self.img0 = Image.open(f"static/img/{int(PokeDown(id1g).pokeselect()[0])}.png").resize((101,94))
             self.img0type = Image.open(f"static/img/{PokeDown(id1g).pokeselect()[4]}.gif")
-            self.img0tk = ImageTk.PhotoImage(self.img0)
             self.img0typetk = ImageTk.PhotoImage(self.img0type)
-            self.lblimg0 = Label(self.widget1, image=self.img0tk)
             self.lblimg0type = Label(self.widget1, image=self.img0typetk)
+            self.img0tk = ImageTk.PhotoImage(self.img0)
+            self.lblimg0 = Label(self.widget1, image=self.img0tk)
         except FileNotFoundError:
             ff = webdriver.Firefox()
             ff.get(f"https://www.pokemon.com/br/pokedex/{PokeDown(id1g).pokeselect()[1]}")
@@ -78,22 +78,28 @@ class App:
             self.img1 = Image.open(f"static/img/{int(PokeDown(id2g).pokeselect()[0])}.png").resize((101,94))
             self.img1tk = ImageTk.PhotoImage(self.img1)
             self.lblimg1 = Label(self.widget1, image=self.img1tk)
+            #type
+            self.img1type = Image.open(f"static/img/{PokeDown(id2g).pokeselect()[4]}.gif")
+            self.img1typetk = ImageTk.PhotoImage(self.img1type)
+            self.lblimg1type = Label(self.widget1, image=self.img1typetk)
         except FileNotFoundError:
             ff = webdriver.Firefox()
             ff.get(f"https://www.pokemon.com/br/pokedex/{PokeDown(id2g).pokeselect()[1]}")
         #GRID
         self.lblimg0.grid(row=1, column=0)
-        self.lblimg0type.grid(row=2, column=1)
+        self.lblimg0type.grid(row=3, column=0)
         self.lblimg1.grid(row=1, column=2)
         self.lbl1.grid(row=2, column=0)
+        self.lblimg1type.grid(row=3, column=2)
         self.lbl2.grid(row=2, column=2)
-        self.btn2.grid(row=3)
+        self.btn2.grid(row=4, column=1)
 
     def btn2_action(self):
         #Remove
         self.lblimg0.grid_remove()
         self.lblimg0type.grid_remove()
         self.lblimg1.grid_remove()
+        self.lblimg1type.grid_remove()
         self.lbl1.grid_remove()
         self.lbl2.grid_remove()
         self.btn2.grid_remove()
