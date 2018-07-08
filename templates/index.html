@@ -24,9 +24,7 @@
       <td>{{el[2]}}</td>
       <td>{{el[3]}}</td>
       <td>
-        {% if el[4] == "Poison" %}
         <img src="{{ url_for('static', filename='img/{}.gif'.format(el[4])) }}" alt="">
-        {% endif %}
         </td>
     </tr>
     {% endfor %}
