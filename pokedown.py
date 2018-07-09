@@ -20,8 +20,7 @@ class PokeDown:
             nomeh2 = "Não tem segunda habilidade"
             print("não tem habilidade")
         nomeTyp = req.json()["types"][0]["type"]["name"].capitalize()
-        Database().inserirdb(pokeid, nomep, nomeh1, nomeh2, nomeTyp)
+        Database().inserir_poke_db(pokeid, nomep, nomeh1, nomeh2, nomeTyp)
         return {"id": pokeid ,"nome": nomep, "ability1": nomeh1, "ability2": nomeh2, "type": nomeTyp}
-
     def pokeselect(self):
         return Database().select_one_db(self.id)

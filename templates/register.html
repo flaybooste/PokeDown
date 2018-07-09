@@ -7,21 +7,64 @@
 	</head>
 	<body>
 		<div class="container">
-			<form action="/register">
-				<div class="form-group">
-					<label>Usuário:</label>
-					<input type="text" class="form-control" id="user">
-					<input type="button" value="post" id="btn1">
+			<br>
+			<form class="form-inline" action="/register">
+				<div class="form-row align-itens-center">
+					<div class="col-auto">
+						<input type="text" class="form-control mb-2" id="ID" placeholder="ID" />
+					</div>
+					<div class="col-auto">
+					<input type="text" class="form-control mb-2" id="user" placeholder="Usuário"/>
+					</div>
+					<div class="col-auto">
+						<input type="password" class="form-control mb-2" id="pass" placeholder="Senha" />
+					</div>
+					<div class="col-auto">
+						<input type="checkbox" class="form-control mb-2" id="gCheck1">
+						<label class="form-check-label" for="gCheck1">Charmander</label>
+					</div>
+						<div class="col-auto">
+						<input type="checkbox" class="form-control mb-2" id="gCheck2">
+						<label class="form-check-label" for="gCheck2">Bulbasaur</label>
+					</div>
+					<div class="col-auto">
+						<input type="checkbox" class="form-control mb-2" id="gCheck3">
+						<label class="form-check-label" for="gCheck3">Squirtle</label>
+					</div><br>
+					
+							<div class="col-auto">
+					<input class="btn btn-primary" type="button" value="post" id="btn1">
 				</div>
 			</form>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js">
 		</script>
 	<script>
-		$("#btn1").click(function(){ 
-			$.post('/register',{
-				user: $("#user").val()
-			});
+		$("#btn1").click(function(){
+			if($("#gCheck1").prop("checked")){
+				$.post('/register',{
+					id: $("#ID").val(),
+					user: $("#user").val(),
+					pass: $("#pass").val(),
+					pokeinit: 4
+			});	
+			}
+			if($("#gCheck2").prop("checked")){
+				$.post('/register',{
+					id: $("#ID").val(),
+					user: $("#user").val(),
+					pass: $("#pass").val(),
+					pokeinit: 1 
+			});	
+			}
+			if($("#gCheck1").prop("checked")){
+				$.post('/register',{
+					id: $("#ID").val(),
+					user: $("#user").val(),
+					pass: $("#pass").val(),
+					pokeinit: 7
+			});	
+			}
 		});
 	</script>
 	</body>
