@@ -18,7 +18,7 @@ class Database:
         return f"Database:  {__name__}"
         #Inserir no banco users
     def inserir_users_db(self, id: int, user: str, passw: str, pokeid: int):
-        self.cur.execute(f"INSERT INTO users VALUES({id}, '{user}', '{passw}', {pokeid})")
+        self.cur.execute(f"INSERT INTO users VALUES('{id}', '{user}', '{passw}', '{pokeid}')")
         self.con.commit()
         return f"{id}\t{user}\t{passw}\t{pokeid}"
         ##Inserir no banco poke
@@ -28,7 +28,7 @@ class Database:
         return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo}"
         ##Selecionar item por ID
     def select_user(self, user: str):
-        self.cur.execute(f"SELECT * FROM users WHERE user={user}")
+        self.cur.execute(f"SELECT * FROM users WHERE user='{user}'")
         user = self.cur.fetchone()
         return user
     def select_one_db(self, id):

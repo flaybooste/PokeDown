@@ -1,4 +1,20 @@
 {% include 'base.html' %}
-<form class="form-group" method="post">
+<br>
+<div class="container">
+  <div class="form-group">
+      <input type="email" class="form-control col-sm-2" id="user" aria-describedby="emailHelp" placeholder="User">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control col-sm-2" id="pass" placeholder="Pass">
+    </div>
+    <input type="button" id="btn" class="btn btn-primary" value="Login">
+</div>
+<script>
+  $("#btn").click(()=>{
+    $.post("/login",{
+      user: $("#user").val(),
+      pass: $("#pass").val()
+    });
+  });
 
-</form>
+</script>

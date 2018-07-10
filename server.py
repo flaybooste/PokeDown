@@ -21,14 +21,17 @@ def index():
 @basic_auth.required
 def register():
     if request.method == "POST":
-        print(request.form['id'])
-        print(request.form['user'])
-        print(request.form['pass'])
-        print(request.form['pokeinit'])
+        Database().inserir_users_db(request.form['id'],
+        request.form['user'],
+        request.form['pass'],
+        request.form['pokeinit'])
     return render_template("register.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    #if request.method == "POST":
-    return render_template('login.html') 
+    if request.method == "POST":
+        if request.form['user'] == Database().select_user(request.form['user'])[1] and request.form['pass'] == Database().select_user(request.form['user'])[2]:
+            print("logado")
+            return "logado"
+    return render_template('login.html')
 app.run(ip,debug=True)
