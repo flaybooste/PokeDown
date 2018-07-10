@@ -22,9 +22,9 @@ def index():
 def register():
     if request.method == "POST":
         Database().inserir_users_db(request.form['id'],
-        request.form['user'],
-        request.form['pass'],
-        request.form['pokeinit'])
+                                    request.form['user'],
+                                    request.form['pass'],
+                                    request.form['pokeinit'])
     return render_template("register.html")
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -32,6 +32,10 @@ def login():
     if request.method == "POST":
         if request.form['user'] == Database().select_user(request.form['user'])[1] and request.form['pass'] == Database().select_user(request.form['user'])[2]:
             print("logado")
-            return "logado"
-    return render_template('login.html')
+            pokeinit = Database().select_user(request.form['user'])[3]
+            return render_template('login.html', pokeinit=pokeinit)
+        else:
+            print("login incorreto")
+    else:
+        return render_template('login.html')
 app.run(ip,debug=True)
