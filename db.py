@@ -27,6 +27,10 @@ class Database:
         self.con.commit()
         return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo}"
         ##Selecionar item por ID
+    def select_user(self, user: str):
+        self.cur.execute(f"SELECT * FROM users WHERE user={user}")
+        user = self.cur.fetchone()
+        return user
     def select_one_db(self, id):
         self.cur.execute(f"SELECT * FROM poke WHERE id = {id}")
         poke = self.cur.fetchone()
