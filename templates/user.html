@@ -1,0 +1,13 @@
+{% include 'base.html' %}
+      <div class="container">
+
+      {% if user %}
+        	<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ url_for('static', filename='img/{}.png'.format(user[2])) }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{user[1]}}</h5>
+    <p class="card-text">ID do player: {{user[0]}}<br>ID do pokemon: {{user[2]}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+      {% endif %}

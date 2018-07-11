@@ -32,7 +32,7 @@ def login():
     if request.method == "POST":
         if request.form['user'] == Database().select_user(request.form['user'])[1] and request.form['pass'] == Database().select_user(request.form['user'])[2]:
             user = Database().select_user(request.form['user'])[0],Database().select_user(request.form['user'])[1],Database().select_user(request.form['user'])[3]
-            return render_template('login.html', user=user)
+            return render_template('user.html', user=user)
         else:
             print("login incorreto")
     else:
