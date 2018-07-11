@@ -10,8 +10,10 @@
     </div>
     <input type="submit" id="btn" class="btn btn-primary" value="Login">
   </form>
-    {% if pokeinit %}
-        <img src="{{ url_for('static', filename='img/{}.png'.format(pokeinit)) }}" width="120px">
+    {% if user %}
+        <img src="{{ url_for('static', filename='img/{}.png'.format(user[2])) }}" width="120px">
+	ID: {{user[0]}} 
+	Usuário: {{user[1]}}
     {% endif %}
 </div>
 <script>
