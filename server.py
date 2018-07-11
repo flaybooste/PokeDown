@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request
 from db import Database
 from flask_basicauth import BasicAuth
 import os
+from netifaces import ifaddresses
 from flask_admin.contrib.sqla import ModelView
 app = Flask(__name__)
 #Config BasicAuth
@@ -9,8 +10,7 @@ basic_auth = BasicAuth(app)
 app.config['BASIC_AUTH_USERNAME'] = 'root'
 app.config['BASIC_AUTH_PASSWORD'] = 'root'
 #---------------------------------
-import socket
-ip = socket.gethostbyname(socket.gethostname())
+ip = ifaddresses('wlp2s0')[2][0]['addr'] 
 
 @app.route("/")
 def index():
