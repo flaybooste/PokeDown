@@ -11,7 +11,7 @@ app.config['BASIC_AUTH_USERNAME'] = 'root'
 app.config['BASIC_AUTH_PASSWORD'] = 'root'
 #---------------------------------
 #ip = ifaddresses('wlp2s0')[2][0]['addr'] 
-ip = 
+ip = '192.168.0.2'  
 @app.route("/")
 def index():
     data = Database().select_all_db()
@@ -39,6 +39,7 @@ def login():
         return render_template('login.html')
 @app.route("/battle")
 def battle():
-    return render_template('battle.html')
+    pokes = Database().select_one_db(1), Database().select_one_db(4)
+    return render_template('battle.html', pokes=pokes)
 
 app.run(ip,debug=True)
