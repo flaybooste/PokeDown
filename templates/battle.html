@@ -1,9 +1,9 @@
 {% include 'base.html' %}
-
+<br>
 <div class="container">
     <div class="row">
         <div class="col">
-            <img class="rounded" src="{{url_for('static',filename='img/{}'.format(pokes[0][0])) }}"/>
+            <img class="rounded float-left" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}"/>
         </div>
     </div>
 </div>
