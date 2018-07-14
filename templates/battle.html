@@ -18,7 +18,7 @@
 					</center>
 				</div>
 			</div>
-		
+
 
 			<div class="col">
 				<div class="card" style="width: 18rem;">
@@ -37,6 +37,9 @@
 
 		</div>
 		<script>
+			window.$ = window.jQuery = require('jquery');
+
+			window.onload = function(){
 			var app = new Vue({
 				el: '.container',
 				data: {
@@ -62,4 +65,5 @@
 				}
 				}
 			})
+			}
 		</script>

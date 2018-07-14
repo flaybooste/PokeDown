@@ -1,0 +1,23 @@
+{
+  "name": "pokedown",
+  "version": "0.0.1",
+  "description": "Pokea api + flask + js + electron",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/flaybooste/PokeDown.git"
+  },
+  "author": "flay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flaybooste/PokeDown/issues"
+  },
+  "homepage": "https://github.com/flaybooste/PokeDown#readme"
+}
