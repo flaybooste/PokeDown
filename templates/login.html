@@ -1,7 +1,9 @@
 {% include 'base.html' %}
 <br>
 <div class="container">
+	<center>
   <form action="/login" method="POST">
+	  <img src="{{ url_for('static', filename='img/ball.png') }}" width='90px'>
     <div class="form-group">
         <input type="text" class="form-control col-sm-2" name="user" id="user" aria-describedby="emailHelp" placeholder="User">
     </div>
@@ -10,6 +12,7 @@
     </div>
     <input type="submit" id="btn" class="btn btn-primary" value="Login">
   </form>
+	</center>
     </div>
 <script>
 //
