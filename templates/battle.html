@@ -1,12 +1,45 @@
 {% include 'base.html' %}
 <br>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <img class="rounded float-left" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}"/>
-        </div>
-    </div>
-</div>
-<script>
+		<div class="row justify-content-md-center">
+			<div class="col">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}"
+					    alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Name: {{pokes[0][1]}}
+							<br>Ability: {{pokes[0][2]}}<br>
+							<b>Life: {{'{{vida}}'}} Stamina: {{'{{stam}}'}}</b>
+						</p>
+							<button class="btn btn-primary">Atacar</button>
+						</div>
+				</div>
+			</div>
+			<div class='col-4'>
+				
+			</div>
+			<div class="col">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[1][0])) }}"
+					    alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Name: {{pokes[1][1]}}
+							<br>Ability: {{pokes[1][2]}}<br>
+						<b>	Life: {{'{{vida}}'}} Stamina: {{'{{stam}}'}}</p> </b>
+							<button class="btn btn-primary">Atacar</button>
+						</div>
+				</div>
+			</div>
 
-</script>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '.container',
+				data: {
+					vida: 100,
+					stam: 10
+				}
+			})
+			$("#btatak0").click(()=>{})
+			$("#btatak1").click(()=>{})
+		</script>
