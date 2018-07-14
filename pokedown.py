@@ -1,14 +1,12 @@
 from requests import get
-from db import Database
+from db import Pokedb
 
 class PokeDown:
-
     def __init__(self, id):
         self.id = id
 
     def __repr__(self):
         return  "PokeDown class for Poke Project"
-
     def pokedb(self):
         req  = get(f"https://pokeapi.co/api/v2/pokemon/{self.id}/")
         pokeid = int(req.json()['id'])
@@ -20,7 +18,7 @@ class PokeDown:
             nomeh2 = "Não tem segunda habilidade"
             print("não tem habilidade")
         nomeTyp = req.json()["types"][0]["type"]["name"].capitalize()
-        Database().inserir_poke_db(pokeid, nomep, nomeh1, nomeh2, nomeTyp)
+        Pokedb().inserir_poke_db(pokeid, nomep, nomeh1, nomeh2, nomeTyp)
         return {"id": pokeid ,"nome": nomep, "ability1": nomeh1, "ability2": nomeh2, "type": nomeTyp}
     def pokeselect(self):
-        return Database().select_one_db(self.id)
+        return Pokedb().select_one_db(self.id)

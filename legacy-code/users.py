@@ -1,7 +1,7 @@
 from db import Database
 class Users:
-    def __init__(self, ID: int, user: str, passw: str, pokeid: int):
-        self.id = id
+    def __init__(self):
+        self.id1 = id1 
         self.user = user
         self.passw = passw
         self.pokeid = pokeid
