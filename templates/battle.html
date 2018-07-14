@@ -6,13 +6,16 @@
 				<div class="card" style="width: 18rem;">
 					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}"
 					    alt="Card image cap">
+
 					<div class="card-body">
-						<p class="card-text">Name: {{pokes[0][1]}}
+						<p class="card-text"><center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[0][4])) }}">
+							<br>Name: {{pokes[0][1]}}
 							<br>Ability: {{pokes[0][2]}}<br>
 							<b>Life: {{'{{vida_0}}'}} Stamina: {{'{{stam_0}}'}}</b>
 						</p>
 							<button id="btatak0" class="btn btn-primary">Atacar</button>
 						</div>
+					</center>
 				</div>
 			</div>
 			<div class='col-4'>
@@ -23,12 +26,14 @@
 					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[1][0])) }}"
 					    alt="Card image cap">
 					<div class="card-body">
-						<p class="card-text">Name: {{pokes[1][1]}}
+						<p class="card-text"><center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[1][4])) }}">
+							<br>Name: {{pokes[1][1]}}
 							<br>Ability: {{pokes[1][2]}}<br>
 						<b>	Life: {{'{{vida_1}}'}} Stamina: {{'{{stam_1}}'}}</p> </b>
 							<button id="btatak1" class="btn btn-primary">Atacar</button>
 						</div>
 				</div>
+			</center>
 			</div>
 
 		</div>
@@ -44,14 +49,18 @@
 			})
 		$("#btatak0").click(()=>{
 				if (app.vida_0 != 0) {
+					if(app.stam_0 != 0){
 					app.vida_1 -= 15;
 					app.stam_0 -= 2;
+				}
 				}
 			})
 		$("#btatak1").click(()=>{
 				if (app.vida_1 != 0) {
+					if(app.stam_1 != 0){
 					app.vida_0 -= 15;
 					app.stam_1 -= 2;
+				}
 				}
 			})
 		</script>
