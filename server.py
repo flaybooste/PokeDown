@@ -36,7 +36,8 @@ def login():
             user = PokeUser().select_user(request.form['user'])[0],PokeUser().select_user(request.form['user'])[1],PokeUser().select_user(request.form['user'])[3]
             return render_template('user.html', user=user)
         else:
-            return("LOGIN INCORRETO!!!!!!!!!!!!!!!!")
+            err = "Login incorreto"
+            return render_template('login.html', error=err)
     else:
         return render_template('login.html')
 

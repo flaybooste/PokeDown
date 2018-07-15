@@ -1,45 +1,45 @@
 {% include 'base.html' %}
 <br>
 <div class="container">
-		<div class="row justify-content-md-center">
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}"
-					    alt="Card image cap">
+	<div class="row justify-content-md-center">
+		<div class="col">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[0][0])) }}" alt="Card image cap">
 
-					<div class="card-body">
-						<p class="card-text"><center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[0][4])) }}">
+				<div class="card-body">
+					<p class="card-text">
+						<center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[0][4])) }}">
 							<br>Name: {{pokes[0][1]}}
 							<br>Ability: {{pokes[0][2]}}<br>
-							<b>Life: {{'{{vida_0}}'}} Stamina: {{'{{stam_0}}'}}</b>
-						</p>
-							<button id="btatak0" class="btn btn-primary">Atacar</button>
-						</div>
-					</center>
+							<b id="b0">Life: {{'{{vida_0}}'}} Stamina: {{'{{stam_0}}'}}</b>
+					</p>
+					<button id="btatak0" class="btn btn-primary">Atacar</button>
 				</div>
+				</center>
 			</div>
+		</div>
 
 
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[1][0])) }}"
-					    alt="Card image cap">
-					<div class="card-body">
-						<p class="card-text"><center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[1][4])) }}">
+		<div class="col">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" width='80px' height="260px" src="{{ url_for('static',filename='img/{}.png'.format(pokes[1][0])) }}" alt="Card image cap">
+				<div class="card-body">
+					<p class="card-text">
+						<center><img src="{{ url_for('static', filename='img/{}.gif'.format(pokes[1][4])) }}">
 							<br>Name: {{pokes[1][1]}}
 							<br>Ability: {{pokes[1][2]}}<br>
-						<b>	Life: {{'{{vida_1}}'}} Stamina: {{'{{stam_1}}'}}</p> </b>
+							<b>	Life: {{'{{vida_1}}'}} Stamina: {{'{{stam_1}}'}}</p> </b>
 							<button id="btatak1" class="btn btn-primary">Atacar</button>
-						</div>
 				</div>
-			</center>
 			</div>
-
+			</center>
 		</div>
-		<script>
-			window.$ = window.jQuery = require('jquery');
 
-			window.onload = function(){
+	</div>
+	<script>
+		window.$ = window.jQuery = require('jquery');
+
+		window.onload = function() {
 			var app = new Vue({
 				el: '.container',
 				data: {
@@ -49,21 +49,30 @@
 					stam_1: 10
 				}
 			})
-		$("#btatak0").click(()=>{
+			$("#btatak0").click(() => {
 				if (app.vida_0 != 0) {
-					if(app.stam_0 != 0){
-					app.vida_1 -= 15;
-					app.stam_0 -= 2;
-				}
+					if (app.stam_0 != 0) {
+						app.vida_1 -= 15;
+						app.stam_0 -= 2;
+					} else if (app.stam_0 == 0) {
+						$("#b0").text('SEM STAMINA aguarde')
+						setTimeout(() => {
+							app.stam_0 = 10
+							$("#b0").text(app.vida_0 + ' ' + app.stam_0)
+						}, 1000)
+						app.vida_1 -= 15;
+						app.stam_0 -= 2;
+					}
+
 				}
 			})
-		$("#btatak1").click(()=>{
+			$("#btatak1").click(() => {
 				if (app.vida_1 != 0) {
-					if(app.stam_1 != 0){
-					app.vida_0 -= 15;
-					app.stam_1 -= 2;
-				}
+					if (app.stam_1 != 0) {
+						app.vida_0 -= 15;
+						app.stam_1 -= 2;
+					}
 				}
 			})
-			}
-		</script>
+		}
+	</script>

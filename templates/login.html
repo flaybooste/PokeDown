@@ -11,10 +11,14 @@
       <input type="password" class="form-control col-sm-2" id="pass" name="pass" placeholder="Pass">
     </div>
     <input type="submit" id="btn" class="btn btn-primary" value="Login">
-  </form>
+		<p id="inc"></p>
+	</form>
 	</center>
     </div>
 <script>
+if({{err}}){
+	$("#inc").text('{{err}}')
+}
 //
 //  $("#btn").click(()=>{
   //  $.post("/login",{
