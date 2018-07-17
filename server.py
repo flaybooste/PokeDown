@@ -12,8 +12,9 @@ app.config['BASIC_AUTH_PASSWORD'] = 'root'
 #---------------------------------
 app.config['CACHE_TYPE'] = 'simple'
 #app.cache = Cache(app)
-ip = ifaddresses('wlp2s0')[2][0]['addr']#linux automatic ip
-#ip = '' WINDOWS MANUAL IP
+#ip = ifaddresses('wlp2s0')[2][0]['addr']#linux automatic ip
+import socket
+ip = socket.gethostbyname(socket.gethostname()) # WINDOWS automatic ip
 @app.route("/")
 def index():
     data = Pokedb().select_all_db()
