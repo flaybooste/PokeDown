@@ -9,6 +9,9 @@
 				<div class="card-body">
 					<p class="card-text">
 						<center><img src="{{url_for('static', filename='img/{}.gif'.format(pokes[0][4])) }}">
+							{% if pokes[0][5] != '0' %}
+								<img src="{{url_for('static', filename='img/{}.gif'.format(pokes[0][5])) }}">
+							{% endif %}
 							<br>Name: {{pokes[0][1]}}
 							<br>Ability: {{pokes[0][2]}}<br>
 							<b id="b0">Life: {{'{{vida_0}}'}} Stamina: {{'{{stam_0}}'}}</b>
