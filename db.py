@@ -12,13 +12,20 @@ class Pokedb:
         self.cur.execute("CREATE TABLE poke(id INT, pokename TEXT, hab1 TEXT, hab2 TEXT, type TEXT)")
         self.con.commit()
         return f"Database:  {__name__}"
-
-        ##Inserir no banco poke
-    def inserir_poke_db(self, id, poke, hab1, hab2, tipo):
-        self.cur.execute(f"INSERT INTO poke VALUES ({id},'{poke}','{hab1}', '{hab2}','{tipo}')")
+    def alteradd_poke_db(self, name, typec):
+        self.cur.execute(f"ALTER TABLE poke ADD {name} {typec}")
         self.con.commit()
-        return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo}"
+        return f"Tabela adicionada {name} {typec}"
+        ##Inserir no banco poke
+    def inserir_poke_db(self, id, poke, hab1, hab2, tipo0):
+        self.cur.execute(f"INSERT INTO poke VALUES ({id},'{poke}','{hab1}', '{hab2}','{tipo0}')")
+        self.con.commit()
+        return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo0}"
         ##Selecionar item por ID
+    def inserir1_poke_db(self, id, poke, hab1, hab2, tipo0, tipo1):
+        self.cur.execute(f"INSERT INTO poke VALUES ({id},'{poke}','{hab1}', '{hab2}','{tipo0}','{tipo1}')")
+        self.con.commit()
+        return f"Inserido na tabela poke do banco de dados SQLITE3 --  ID: {id} \t Poke: {poke} \t Habi 1 : {hab1} \t Habi2 {hab2} \t Tipo: {tipo0} \t Tipo1: {tipo1} "
     def select_one_db(self, id):
         self.cur.execute(f"SELECT * FROM poke WHERE id = {id}")
         poke = self.cur.fetchone()
